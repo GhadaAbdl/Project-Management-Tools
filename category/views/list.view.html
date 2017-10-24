@@ -1,0 +1,13 @@
+<a ui-sref="newCategory" class="btn-primary btn-lg nodecoration">Add New C</a>
+<table class="table movietable">
+    <tr>
+        <td><h3>All categories</h3></td>
+        <td></td>
+    </tr>
+    <tr ng-repeat="category in categories">
+        <td>{{category.name}}</td>
+        <td>
+          <a class="btn btn-mini btn-inverse" ui-sref="viewCategory({id:category.idCategory})">Details</a>
+        </td>
+    </tr>
+</table>

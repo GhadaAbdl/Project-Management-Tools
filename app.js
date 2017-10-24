@@ -1,0 +1,45 @@
+
+
+angular.module('pmt',['ui.router','ngResource','pmt.controllers','pmt.services','pmt.controllersC','pmt.servicesC','pmt.controllersChat','firebase']);
+
+angular.module('pmt').config(function($stateProvider,$httpProvider){
+    $stateProvider.state('projects',{
+        url:'/projects',
+        templateUrl:'project/views/list.view.html',
+        controller:'ProjectListController'
+    }).state('viewProject',{
+       url:'/projects/:id/view',
+       templateUrl:'project/views/project-view.html',
+       controller:'ProjectViewController'
+    }).state('newProject',{
+        url:'/projects/new',
+        templateUrl:'project/views/project-add.html',
+        controller:'ProjectCreateController'
+    }).state('editProject',{
+        url:'/projects/:id/edit',
+        templateUrl:'project/views/project-edit.html',
+        controller:'ProjectEditController'
+    }).state('categories',{
+        url:'/categories',
+        templateUrl:'category/views/list.view.html',
+        controller:'CategoryListController'
+    }).state('viewCategory',{
+       url:'/categories/:id/view',
+       templateUrl:'category/views/category-view.html',
+       controller:'CategoryViewController'
+    }).state('newCategory',{
+        url:'/categories/new',
+        templateUrl:'category/views/category-add.html',
+        controller:'CategoryCreateController'
+    }).state('editCategory',{
+        url:'/categories/:id/edit',
+        templateUrl:'category/views/category-edit.html',
+        controller:'CategoryEditController'
+    }).state('chat',{
+        url:'/projects/chat',
+        templateUrl:'project/views/chat.html',
+        controller:'ChatController'
+    });
+}).run(function($state){
+   $state.go('projects');
+});
